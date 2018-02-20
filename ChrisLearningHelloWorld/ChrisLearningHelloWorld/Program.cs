@@ -56,13 +56,14 @@ namespace ChrisLearningHelloWorld
 
             Ball1.Throw_Ball();
 
-            Console.WriteLine("Ball 1 :" + Ball1.Ball_Throw_count() + ' ' + Ball1.GetGreyScaleColour);
+            Console.WriteLine("Ball 1 :" + Ball1.Ball_Throw_count() + ' ' + Ball1.Ball_colour.GetGreyScaleColour());
             Ball1.Throw_Ball();
-            Console.WriteLine("Ball 1 :" + Ball1.Ball_Throw_count());
+            Console.WriteLine("Ball 1 :" + Ball1.Ball_Throw_count() + ' ' + Ball1.Ball_colour.Blue);
             Ball1.Pop_Ball();
-            Console.WriteLine("Ball 1 :" + Ball1.Ball_Throw_count());
+            Ball1.Ball_colour.Blue = 199;
+            Console.WriteLine("Ball 1 :" + Ball1.Ball_Throw_count() + ' ' + Ball1.Ball_colour.Blue);
             Ball1.Throw_Ball();
-            Console.WriteLine("Ball 1 :" + Ball1.Ball_Throw_count());
+            Console.WriteLine("Ball 1 :" + Ball1.Ball_Throw_count() + ' ' + Ball1.Ball_colour.GetGreyScaleColour());
 
             Console.ReadKey();
         }
