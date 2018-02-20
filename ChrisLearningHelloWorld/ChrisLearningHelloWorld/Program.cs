@@ -64,7 +64,6 @@ namespace ChrisLearningHelloWorld
             Console.WriteLine("Ball 1 :" + Ball1.Ball_Throw_count() + ' ' + Ball1.Ball_colour.Blue);
             Ball1.Throw_Ball();
             Console.WriteLine("Ball 1 :" + Ball1.Ball_Throw_count() + ' ' + Ball1.Ball_colour.GetGreyScaleColour());
-
             Console.ReadKey();
         }
     }
