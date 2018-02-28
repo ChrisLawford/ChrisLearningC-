@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using LiveCharts;
 using LiveCharts.Wpf;
+using LiveCharts.Configurations;
+using LiveCharts.Defaults;
 
 namespace SimpleLiveChart
 {
@@ -12,18 +14,11 @@ namespace SimpleLiveChart
     {
         public MainWindowViewModel()
         {
-            
-            collection = new SeriesCollection {
-                new LineSeries
-                {
-                    Values = new ChartValues<double> { 3, 5, 7, 4 }
-                },
-                new LineSeries
-                {
-                    Values = new ChartValues<decimal> { 5, 6, 2, 7 }
-                }}; 
+            valuesA = new ChartValues<ObservablePoint>
+            {
+                new ObservablePoint(0, 0)
+            };
         }
-        private ChartValues<double> Values;
 
         private double x_value;
 
@@ -34,6 +29,7 @@ namespace SimpleLiveChart
             {
                 x_value = value;
                 OnPropertyChanged("X_Value");
+                AddObservablePoint();
             }
         }
 
@@ -46,18 +42,17 @@ namespace SimpleLiveChart
             {
                 y_value = value;
                 OnPropertyChanged("Y_Value");
+                AddObservablePoint();
             }
         }
-
-        private SeriesCollection collection;
-
-        public SeriesCollection Collection
+        private ChartValues<ObservablePoint> valuesA;
+        public ChartValues<ObservablePoint> ValuesA
         {
-            get { return collection; }
+            get { return valuesA; }
             set
             {
-                collection = value;
-                OnPropertyChanged("Collection");
+                valuesA = value;
+                OnPropertyChanged("ValuesA");
             }
         }
 
@@ -79,7 +74,10 @@ namespace SimpleLiveChart
         {
             Y_Value = Y_Value - 1;
         }
-
+        private void AddObservablePoint()
+        {
+            ValuesA.Add(new ObservablePoint(X_Value, Y_Value));
+        }
         #endregion Methods
     }
 }
