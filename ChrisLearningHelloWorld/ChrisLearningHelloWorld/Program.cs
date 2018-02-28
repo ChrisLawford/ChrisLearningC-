@@ -8,8 +8,14 @@ namespace ChrisLearningHelloWorld
 {
     class Program
     {
+        private List<double> m_Sixty_last_values;
+        /// <summary>
+        /// List of configured properties for easy iterating
+        /// </summary>
+        public List<double> Sixty_last_values { get { return m_Sixty_last_values; } }
         static void Main(string[] args)
         {
+
             // Writing my first line of C# whilst actually learning the language
             Console.WriteLine("Hello World!");
 
@@ -64,6 +70,17 @@ namespace ChrisLearningHelloWorld
             Console.WriteLine("Ball 1 :" + Ball1.Ball_Throw_count() + ' ' + Ball1.Ball_colour.Blue);
             Ball1.Throw_Ball();
             Console.WriteLine("Ball 1 :" + Ball1.Ball_Throw_count() + ' ' + Ball1.Ball_colour.GetGreyScaleColour());
+
+
+            List<double> ballz = new List<double> { 0, 1, 2 };
+            Console.WriteLine(ballz.Capacity);
+            ballz.Insert(0, 4);
+            Console.WriteLine(ballz.Capacity);
+            for(int i=0; i<ballz.Capacity; i++)
+            {
+                Console.WriteLine(ballz[i]);
+            }
+
             Console.ReadKey();
         }
     }
