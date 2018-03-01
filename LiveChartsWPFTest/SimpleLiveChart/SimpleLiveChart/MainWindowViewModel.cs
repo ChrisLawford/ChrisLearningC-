@@ -7,7 +7,8 @@ using LiveCharts;
 using LiveCharts.Wpf;
 using LiveCharts.Configurations;
 using LiveCharts.Defaults;
-
+using System.Windows.Media;
+ 
 namespace SimpleLiveChart
 {
     public class MainWindowViewModel : ObservableObject
@@ -17,6 +18,7 @@ namespace SimpleLiveChart
             valuesA = new ChartValues<ObservablePoint>
             {
                 new ObservablePoint(0, 0)
+
             };
         }
 
@@ -46,6 +48,8 @@ namespace SimpleLiveChart
             }
         }
         private ChartValues<ObservablePoint> valuesA;
+        private int NOOFVALUES = 6;
+
         public ChartValues<ObservablePoint> ValuesA
         {
             get { return valuesA; }
@@ -77,6 +81,10 @@ namespace SimpleLiveChart
         private void AddObservablePoint()
         {
             ValuesA.Add(new ObservablePoint(X_Value, Y_Value));
+            if (ValuesA.Count > NOOFVALUES)
+            {
+                ValuesA.RemoveAt(0);
+            }
         }
         #endregion Methods
     }
